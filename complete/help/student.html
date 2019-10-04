@@ -5,9 +5,6 @@
 
 <script type="text/javascript">
 var ip= window.location.href.split('/')[2];
-        function Phpmyadmin() {
-          window.open('http://'+ ip + '/phpmyadmin')
-        }
         function Ftp(){
         window.open('ftp://'+ip)
         }
@@ -22,7 +19,9 @@ var ip= window.location.href.split('/')[2];
 <form action="cgi-bin/student.py" method="POST">
 Moodle site:<br><input type="text" name="id" value="" size=40><br>
 <br><input type="submit" value="go to my moodle">
-<input type="button" value="phpmyadmin" onclick="Phpmyadmin()">
+</form>
+<form action="cgi-bin/phpmy.py" method="POST">
+<input type="submit" value="phpmyadmin">
 <input type="button" value="ftp" onclick="Ftp()">
 </form>
 
