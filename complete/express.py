@@ -172,3 +172,4 @@ for i in list_of_students:
                     server.sendmail(
                             sender_email, str(i[3]), message.as_string()
             )
+os.system("sudo chmod -R 777 /var/www/html")
