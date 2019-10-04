@@ -4,6 +4,11 @@ os.system("sudo python3 writeip.py")
 os.system("sudo cp -R ip.txt cgi-bin/")
 os.system("sudo apt-get install vim -y")
 os.system("sudo apt install apache2 mysql-client mysql-server php libapache2-mod-php -y")
+pathof = os.path.abspath('ip.txt')
+x = open(pathof,'r')
+ipread=x.read()
+sqlip = ipread.replace("\n","")
+print(sqlip)
 
 os.system("sudo apt  install graphviz aspell ghostscript clamav php7.2-pspell php7.2-curl php7.2-gd php7.2-intl php7.2-mysql php7.2-xml php7.2-xmlrpc php7.2-ldap php7.2-zip php7.2-soap php7.2-mbstring -y")
 print("Install Additional Software finished")
@@ -107,6 +112,22 @@ os.system("sudo apt-get install unzip -y")
 os.system("sudo wget https://files.phpmyadmin.net/phpMyAdmin/4.7.0/phpMyAdmin-4.7.0-all-languages.zip")
 os.system("sudo unzip phpMyAdmin-4.7.0-all-languages.zip")
 os.system("sudo mv phpMyAdmin-4.7.0-all-languages phpMyAdmin")
+//let phpmyadmin default host to sql ip
+os.chdir("/var/www/html/phpMyAdmin/libraries")
+os.system("sudo chmod o+r config.default.php")
+os.system("sudo chmod o+w config.default.php")
+
+f = open('/var/www/html/phpMyAdmin/libraries/config.default.php','r')
+content = f.read()
+f.close()
+index = content.find("$cfg['Servers'][$i]['host'] = \'\'")
+
+a = len("$cfg['Servers'][$i]['host'] = \'")
+print(a)
+content = content[:index+a] + sqlip + content[index+a:]
+y = open('/var/www/html/phpMyAdmin/libraries/config.default.php','w')
+y.write(content)
+y.close()
 
 
 os.system("sudo /etc/init.d/apache2 restart")
