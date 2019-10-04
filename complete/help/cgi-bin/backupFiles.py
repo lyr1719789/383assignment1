@@ -41,7 +41,7 @@ def dbbu(students):
     if os.path.exists("/mnt/backup/dbbu"):
         os.system("sudo rm -rf /mnt/backup/dbbu")
     os.system("sudo mkdir /mnt/backup/dbbu")
-    ip = open('../../ip.txt', "r")
+    ip = open('ip.txt', "r")
     a = ip.read()
     ip.close()
     for i in students:

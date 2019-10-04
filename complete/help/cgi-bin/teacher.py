@@ -7,10 +7,6 @@ import os
 import csv
 import pymysql
 
-sqlip = open('../../ip.txt',"r")
-a = sqlip.read()
-sqlip.close()
-print(a)
 
 
 def Student_list(file_name):
@@ -82,7 +78,10 @@ def ftp_change(username, pwd):
 
 
 def phpma_change(username, pwd):
-
+    sqlip = open('ip.txt', "r")
+    a = sqlip.read()
+    sqlip.close()
+    print(a)
     conn = pymysql.connect(host=a,port=3306, user='root',passwd='Moodle123moodle')
     cursor=conn.cursor()
 
@@ -97,7 +96,10 @@ def phpma_change(username, pwd):
 
 
 def moodle_change(username,pwd):
-
+    sqlip = open('ip.txt', "r")
+    a = sqlip.read()
+    sqlip.close()
+    print(a)
     conn = pymysql.connect(host=a,port=3306, user='root',passwd='Moodle123moodle')
     cursor=conn.cursor()
 

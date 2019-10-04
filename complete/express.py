@@ -118,14 +118,14 @@ for i in list_of_students:
 
             os.chdir("/var/www/html/")
 
-            os.system("sudo chown -R www-data /var/data"+str(i[0]))
-            os.system("sudo chmod -R 777 /var/data"+str(i[0]))
+            os.system("sudo chown -R www-data /mnt/moodledata/data"+str(i[0]))
+            os.system("sudo chmod -R 777 /mnt/moodledata/data"+str(i[0]))
             os.chdir("/var/www/html/")
             os.chmod(str(i[4]),777)
             os.chdir(str(i[4]))
             if os.path.isfile("config.php"):
                     os.system("rm -rf config.php")
-            os.system("""sudo /usr/bin/php admin/cli/install.php --wwwroot=http://"""+str(ip)+"/"+str(i[4])+""" --dataroot=/var/data"""+str(i[0])+""" --dbtype=mysqli --dbhost="""+a+""" --dbname=student"""+str(i[0])+""" --dbuser="""+str(i[4])+""" --dbpass="""+str(i[5])+""" --fullname="""+str(i[4])+"""moodle --shortname=120moodle --adminpass="""+str(i[5])+""" --non-interactive --agree-license""")
+            os.system("""sudo /usr/bin/php admin/cli/install.php --wwwroot=http://"""+str(ip)+"/"+str(i[4])+""" --dataroot=/var/data"""+str(i[0])+""" --dbtype=mysql --dbhost="""+a+""" --dbname=student"""+str(i[0])+""" --dbuser="""+str(i[4])+""" --dbpass="""+str(i[5])+""" --fullname="""+str(i[4])+"""moodle --shortname=120moodle --adminpass="""+str(i[5])+""" --non-interactive --agree-license""")
 
 
 

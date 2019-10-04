@@ -117,8 +117,8 @@ for i in list_of_students:
             
             os.chdir("/var/www/html/")
 
-            os.system("sudo chown -R www-data /var/data"+str(i[0]))
-            os.system("sudo chmod -R 777 /var/data"+str(i[0]))
+            os.system("sudo chown -R www-data /mnt/moodledata/data"+str(i[0]))
+            os.system("sudo chmod -R 777 /mnt/moodledata/data"+str(i[0]))
             os.chdir("/var/www/html/")
             os.chmod(str(i[4]),777)
             os.chdir(str(i[4]))

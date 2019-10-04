@@ -75,7 +75,7 @@ def siterestore(file):
     print("Restore sucessfully!!!")
 
 def sqlrestore(database,username,password):
-    ip = open('../../ip.txt', "r")
+    ip = open('ip.txt', "r")
     a = ip.read()
     ip.close()
     conn = pymysql.connect(host=a, port=3306, user="root", passwd="Moodle123moodle")
@@ -114,4 +114,4 @@ app = form['app'].value if 'app' in form else ''
 username = form['user'].value if 'user' in form else ''
 pwd = form['pwd'].value if 'pwd' in form else ''
 students=Student_list("StudentDatas.csv")
-confirm(students,app,username,password)
+confirm(students,app,username,pwd)

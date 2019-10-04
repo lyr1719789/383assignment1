@@ -14,7 +14,7 @@ import pymysql
 r = os.popen("curl ifconfig.me")
 exip = r.read()
 r.close()
-f = open("../../ip.txt","r")
+f = open("ip.txt","r")
 ip = f.read()
 f.close() 
 
@@ -34,12 +34,9 @@ print("<style type='text/css'>")
 print("th,td{border:2px solid black;}")
 print("table{padding: 60px 50px;}")
 print("input:hover { background-color:green; /* Green */    color: white;border-radius: 50%;}")
-print("input {color: green; text-align: left; text-decoration: none; display: inline-block; font-size: 1
-6px;border: 2px solid #4CAF50;border-radius: 50%;}")
-print("body {background:url('http://blog.hostbaby.com/wp-content/uploads/2014/03/PaintSquares_1400x900-1
-024x658.jpg');background-size:98% 100%;background-repeat:no-repeat; }")
-print("h1{text-shadow: 5px 5px 5px #95CACA;text-align:center;text-decoration:overline;letter-spacing:2px
-;")
+print("input {color: green; text-align: left; text-decoration: none; display: inline-block; font-size: 16px;border: 2px solid #4CAF50;border-radius: 50%;}")
+print("body {background:url('http://blog.hostbaby.com/wp-content/uploads/2014/03/PaintSquares_1400x900-1024x658.jpg');background-size:98% 100%;background-repeat:no-repeat; }")
+print("h1{text-shadow: 5px 5px 5px #95CACA;text-align:center;text-decoration:overline;letter-spacing:2px;")
 print("</style>")
 print("</head>")
 print("<body><center>")
@@ -47,11 +44,11 @@ print("<table>")
 print("<tr><th>ID/task</th><th>first</th><th>second</th><th>third</th><th>forth</th><th>fifth</th><th>sixth</th><th>seventh</th></tr>")
 for i in list_of_students:
 	print("<script type='text/javascript'>")
-    print("var btn = document.getElementById('btn')")
-    print("btn.onclick=function(){window.location.href='http://'+str(exip)+'/'+str(i[4])+''}")
+	print("var btn = document.getElementById('btn')")
+	print("btn.onclick=function(){window.location.href='http://'+str(exip)+'/'+str(i[4])+''}")
 	print("<tr>")
 	print("<td><button id='btn'>student'+str(i[0])+'</button></td>")
-	# get post data
+# get post data
 	form = cgi.FieldStorage()
 	# query to check password and get permissions
 	sql = 'select count(*) from mdl_course'
@@ -63,17 +60,16 @@ for i in list_of_students:
 	sq7="SELECT 1 FROM mdl_url"
 	sq8="SELECT 1 FROM `mdl_files` WHERE component='mod_resource'"
 	# connect to database
-	conn = pymysql.connect(host=ip,user="root",password="Moodle123moodle",db =""+str(i[4])+"",chars
-	et ="utf8")
+	conn = pymysql.connect(host=ip,user="root",password="Moodle123moodle",db =""+str(i[4])+"",charset ="utf8")
 	#1
 	cursor = conn.cursor()
 	cursor.execute(sql)
 	courses = cursor.fetchall()
 	for num in courses:
 		if num >= 2:
-		   print("<th>ok</th>")
+			print("<th>ok</th>")
 		else:
-		   print("<th>no</th>")
+			print("<th>no</th>")
 	#2
 	cursor1 = conn.cursor()
 	cursor1.execute(sq1)
@@ -82,10 +78,10 @@ for i in list_of_students:
 	cursor2.execute(sq2)
 	spe=cursor2.fetchall()
 	for num1 in user:
-		  if num1 >= 4 and len(spe)!=0 :
-			   print("<th>ok</th>")
-		  else:
-			   print("<th>no</th>")
+		if num1 >= 4 and len(spe)!=0 :
+			print("<th>ok</th>")
+		else:
+			print("<th>no</th>")
 	#3
 	cursor3 = conn.cursor()
 	cursor3.execute(sq3)
