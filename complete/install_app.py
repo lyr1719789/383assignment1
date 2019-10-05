@@ -25,11 +25,7 @@ os.system("sudo apt-get install python3-pip -y")
 os.system("sudo pip3 install --upgrade pip")
 os.system("sudo pip3 install pymysql ")
 
-#open port
-os.system("sudo ufw enable ")
-os.system("sudo ufw allow 20:21/tcp")
-os.system("sudo ufw allow 6000:7000/tcp")
-print("the port has opened")
+
 import pymysql
 #import csv
 # read the csv file
