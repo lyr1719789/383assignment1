@@ -124,14 +124,16 @@ f = open('/var/www/html/phpMyAdmin/libraries/config.default.php','r')
 content = f.read()
 f.close()
 index = content.find("$cfg['Servers'][$i]['host'] = '")
-
-a = len("$cfg['Servers'][$i]['host'] = \'")
+print(index)
+a = len("$cfg['Servers'][$i]['host'] = ")
 print(a)
-content = content[:index+a] + sqlip + content[index+a:]
+#print(content[:index+a])
+content = content[:index+a+1] + sqlip + content[index+a+10:]
 y = open('/var/www/html/phpMyAdmin/libraries/config.default.php','w')
-print("##################################################################################",content)
 y.write(content)
+
 y.close()
+print(content[:index+a+a])
 
 
 os.system("sudo /etc/init.d/apache2 restart")
