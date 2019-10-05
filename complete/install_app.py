@@ -123,7 +123,7 @@ os.system("sudo chmod o+w config.default.php")
 f = open('/var/www/html/phpMyAdmin/libraries/config.default.php','r')
 content = f.read()
 f.close()
-index = content.find("$cfg['Servers'][$i]['host'] = \'\'")
+index = content.find("$cfg['Servers'][$i]['host'] = '")
 
 a = len("$cfg['Servers'][$i]['host'] = \'")
 print(a)
