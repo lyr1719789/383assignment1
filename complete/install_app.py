@@ -112,7 +112,8 @@ os.system("sudo apt-get install unzip -y")
 os.system("sudo wget https://files.phpmyadmin.net/phpMyAdmin/4.7.0/phpMyAdmin-4.7.0-all-languages.zip")
 os.system("sudo unzip phpMyAdmin-4.7.0-all-languages.zip")
 os.system("sudo mv phpMyAdmin-4.7.0-all-languages phpMyAdmin")
-//let phpmyadmin default host to sql ip
+
+#let phpmyadmin default host to sql ip
 os.chdir("/var/www/html/phpMyAdmin/libraries")
 os.system("sudo chmod o+r config.default.php")
 os.system("sudo chmod o+w config.default.php")
