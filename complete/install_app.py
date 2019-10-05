@@ -2,7 +2,7 @@ import os
 os.system("sudo apt update")
 
 os.system("sudo python3 writeip.py")
-os.system("sudo cp -R ip.txt cgi-bin/")
+
 os.system("sudo apt-get install vim -y")
 os.system("sudo apt install apache2 mysql-client mysql-server php libapache2-mod-php -y")
 pathof = os.path.abspath('ip.txt')
