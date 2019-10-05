@@ -69,7 +69,7 @@ def confirm_permission(student_list,teacher, app, username, pwd,sid):
 
             elif app == "moodle":
                 if username == student[4]:
-                    moodle_change(username, pwd)
+                    moodle_change(sid, pwd)
                     print("Modify successfully!")
                 else:
                     print("Please check your account!")
@@ -115,7 +115,7 @@ def moodle_change(username,pwd):
     conn = pymysql.connect(host=a,port=3306, user='root',passwd='Moodle123moodle')
     cursor=conn.cursor()
 
-    sql2="use %s "%username
+    sql2="use student%s "%username
     a= cursor.execute(sql2)
     print(sql2)
     sql = "UPDATE mdl_user SET `password` =MD5(%s) WHERE `username` = 'admin';"%pwd
