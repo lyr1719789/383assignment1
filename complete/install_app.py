@@ -1,5 +1,6 @@
 import os
 os.system("sudo apt update")
+os.system("sudo apt upgrade")
 
 os.system("sudo python3 writeip.py")
 
