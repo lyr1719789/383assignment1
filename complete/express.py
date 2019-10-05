@@ -125,10 +125,13 @@ for i in list_of_students:
             os.chdir(str(i[4]))
             if os.path.isfile("config.php"):
                     os.system("rm -rf config.php")
-            os.system("""sudo /usr/bin/php admin/cli/install.php --wwwroot=http://"""+str(ip)+"/"+str(i[4])+""" --dataroot=/mnt/moodledata/data"""+str(i[0])+""" --dbhost="""+a+""" --dbname=student"""+str(i[0])+""" --dbuser="""+str(i[4])+""" --dbpass="""+str(i[5])+""" --fullname="""+str(i[4])+"""moodle --shortname=120moodle --adminpass="""+str(i[5])+""" --non-interactive --agree-license""")
+            
 
-
-
+            os.system("sudo /usr/bin/php admin/cli/install.php --w"
+            "wwroot=http://%s/%s --dataroot=/mnt/moodledata/"
+            "data%s --dbtype=mysqli --dbhost=%s --dbname=student%s --dbuser=%s"
+            " --dbpass=%s --fullname=%smoodle --shortname=120moodle"
+            " --adminpass=%s --non-interactive --agree-license"%(str(ip),str(i[4]),str(i[0]),a,str(i[0]),str(i[4]),str(i[5]),str(i[4]),str(i[5])))
             os.system("useradd -m %s"%(i[0]))
             os.system("echo %s:%s| chpasswd"%(i[0],str(i[6])))
             os.system("chown -R %s:%s /var/www/html/%s"%(i[0],i[0],i[4]))
