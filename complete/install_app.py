@@ -128,6 +128,7 @@ a = len("$cfg['Servers'][$i]['host'] = \'")
 print(a)
 content = content[:index+a] + sqlip + content[index+a:]
 y = open('/var/www/html/phpMyAdmin/libraries/config.default.php','w')
+print("##################################################################################",content)
 y.write(content)
 y.close()
 
