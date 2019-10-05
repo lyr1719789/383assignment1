@@ -1,4 +1,5 @@
 import os
+os.system("sudo apt update")
 
 os.system("sudo python3 writeip.py")
 os.system("sudo cp -R ip.txt cgi-bin/")
@@ -180,8 +181,10 @@ while unanswered == True:
     else:
         print("wrong option. choose 1 or 2")
 
+os.system("sudo cp -R /var/383assignment1/complete/ip.txt /var/www/html/cgi-bin")
 if choice == "1":
     os.system("python3 for_loop.py")
 if choice == "2":
     os.system("python3 express.py")
 print("for_loop finished")
+
