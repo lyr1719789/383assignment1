@@ -125,7 +125,7 @@ for i in list_of_students:
             os.chdir(str(i[4]))
             if os.path.isfile("config.php"):
                     os.system("rm -rf config.php")
-            os.system("""sudo /usr/bin/php admin/cli/install.php --wwwroot=http://"""+str(ip)+"/"+str(i[4])+""" --dataroot=/mnt/moodledata/data"""+str(i[0])+""" --dbtype=mysqli --dbhost="""+a+""" --dbname=student"""+str(i[0])+""" --dbuser="""+str(i[4])+""" --dbpass="""+str(i[5])+""" --fullname="""+str(i[4])+"""moodle --shortname=120moodle --adminpass="""+str(i[5])+""" --non-interactive --agree-license""")
+            os.system("""sudo /usr/bin/php admin/cli/install.php --wwwroot=http://"""+str(ip)+"/"+str(i[4])+""" --dataroot=/mnt/moodledata/data"""+str(i[0])+""" --dbhost="""+a+""" --dbname=student"""+str(i[0])+""" --dbuser="""+str(i[4])+""" --dbpass="""+str(i[5])+""" --fullname="""+str(i[4])+"""moodle --shortname=120moodle --adminpass="""+str(i[5])+""" --non-interactive --agree-license""")
 
 
 
