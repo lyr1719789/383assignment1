@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-print("Content-type:text/html\n\n")
+
 import sys
 sys.path.append("H:\\apps\\Python27\\lib\\site-packages")
 import cgi
@@ -11,7 +11,9 @@ import pymysql
 # Import modules for CGI handling
 
 
-
+print("Content-type: text/html\n")
+print("<title>Result</title>")
+print("<body><center>")
 
 
 def Student_list(file_name):
@@ -23,7 +25,7 @@ def Student_list(file_name):
         for row in reader:
             list_of_students.append(row)
             # Remove metadata from top row
-        list_of_students.pop(0)
+        
     return list_of_students
 
 def confirm(students,app,username,password):
@@ -57,8 +59,8 @@ def confirm(students,app,username,password):
     if count==len(students):
         print("Please check your username")
     print("""
-            <form action="../student.html" method="GET">
-                    <input type="submit" value="Back to Login">
+            <form action="../mybackup.html" method="GET">
+                    <input type="submit" value="Back to last page">
                 </form>
                 """)
 
@@ -67,29 +69,34 @@ def confirm(students,app,username,password):
 
 def filerestore(filename):
     # Copy the code directory back to its original location
+    os.system("sudo rm -rf /var/www/html/%s"%filename)
     os.system("sudo cp -rp /mnt/backup/msbu/%s /var/www/html/%s"%(filename,filename))
     print("Restore sucessfully!!!")
 
 def siterestore(file):
     os.system("sudo cp -rp /mnt/backup/mdbu/%s /mnt/moodledata/%s"%(file,file))
+    os.system("sudo rm -rf /mnt/moodledata/%s "%(file))
     print("Restore sucessfully!!!")
 
 def sqlrestore(database,username,password):
-    ip = open('ip.txt', "r")
-    a = ip.read()
-    ip.close()
-    conn = pymysql.connect(host=a, port=3306, user="root", passwd="Moodle123moodle")
+    pathof = os.path.abspath('ip.txt')
+    x = open(pathof,'r')
+    ipread=x.read()
+    sqlip = ipread.replace("\n","")
+
+    conn = pymysql.connect(host=sqlip, port=3306, user="root", passwd="Moodle123moodle")
     cursor = conn.cursor()
-    sql4="DROP DATABASE student%s; "%database
+    sql4="DROP DATABASE %s; "%database
     b = cursor.execute(sql4)
-    sql2="create database student%s; "%database
+    sql2="create database %s; "%database
     a= cursor.execute(sql2)
     c=cursor.execute("flush privileges;")
     conn.commit()
     cursor.close()
     conn.close()
-    os.system("mysql -h%s -u%s -p%s %s < /mnt/backup/dbbu/%s.sql"%(a,username,password,database,database))
+    os.system("sudo mysql -h%s -u%s -p%s %s < /mnt/backup/dbbu/%s.sql"%(sqlip,"root","Moodle123moodle",database,database))
     print("Restore sucessfully!!!")
+
 
 # def restoreFiles():
 #     #Copy moodledata back to its original location
@@ -106,8 +113,7 @@ def sqlrestore(database,username,password):
 #     print("Restoring Files Completed----------------------------------------------")
 #
 # #If student clicks Restore Button then call backupFiles method
-# print("<title>Result</title>")
-# print("<body><center>")
+
 
 form = cgi.FieldStorage()
 app = form['app'].value if 'app' in form else ''
@@ -115,3 +121,4 @@ username = form['user'].value if 'user' in form else ''
 pwd = form['pwd'].value if 'pwd' in form else ''
 students=Student_list("StudentDatas.csv")
 confirm(students,app,username,pwd)
+print('</center></body>')
