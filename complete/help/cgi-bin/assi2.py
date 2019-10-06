@@ -8,6 +8,9 @@ import csv
 import string
 import pandas as pd
 import pymysql
+print("Content-type: text/html\n")
+print("<title>Assignment2 progress</title>")
+
 r = os.popen("curl ifconfig.me")
 exip = r.read()
 r.close()
@@ -24,8 +27,7 @@ with open('StudentDatas.csv', 'r') as csvFile:
                 list_of_students.append(row)
                 # Remove metadata from top row
         list_of_students.pop(0)
-print("Content-type: text/html\n")
-print("<title>Assignment2 progress</title>")
+
 print("<head>")
 print("<style type='text/css'>")
 print("th,td{border:2px solid black;}")
