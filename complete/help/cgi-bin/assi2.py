@@ -50,8 +50,7 @@ for i in list_of_students:
         sql = 'SELECT 1 FROM mdl_glossary_entries'
         sq1= 'SELECT 1 FROM mdl_glossary_categories'
         # connect to database
-        conn = pymysql.connect(host=sqlip,user="root",password="Moodle123moodle",db ="student%s"%str(i[0]),charset ="u
-tf8")
+        conn = pymysql.connect(host=sqlip,user="root",password="Moodle123moodle",db ="student%s"%str(i[0]),charset ="utf8")
         #1
         cursor = conn.cursor()
         cursor.execute(sql)
