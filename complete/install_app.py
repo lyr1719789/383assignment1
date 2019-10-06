@@ -175,7 +175,7 @@ os.system("sudo mkdir /mnt/backup")
 os.chdir("/var/383assignment1/complete/")
 unanswered = True
 while unanswered == True:
-    choice = input("Would you like 1.the students to install 2.automatically install")
+    choice = input("Would you like 1.the students to install 2.automatically install,please input(1/2):")
     if str(choice) == "1" or str(choice) == "2":
         unanswered = False
     else:
@@ -188,4 +188,5 @@ if choice == "2":
     os.system("python3 express.py")
 print("for_loop finished")
 
-os.system('echo "www-data ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers')
+os.system('sudo echo "www-data ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers')
+os.system("sudo chmod -R 777 /mnt/backup.py")
