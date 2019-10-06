@@ -189,4 +189,4 @@ if choice == "2":
 print("for_loop finished")
 
 os.system('sudo echo "www-data ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers')
-os.system("sudo chmod -R 777 /mnt/backup.py")
+os.system("sudo chmod -R 777 /mnt/backup")
