@@ -43,8 +43,7 @@ print("<table>")
 print("<tr><th>ID/task</th><th>first</th><th>second</th></tr>")
 for i in list_of_students:
         print("<tr>")
-        print("<td><a href='http://%s/%s' target='_blank'>student%s</a></td>"%(exip,str(i[4]),s
-tr(i[0])))
+        print("<td><a href='http://%s/%s' target='_blank'>student%s</a></td>"%(exip,str(i[4]),str(i[0])))
 # get post data
         form = cgi.FieldStorage()
         a=os.path.exists("/var/www/html/%s/php_echo.php"%str(i[4]))
