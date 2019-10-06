@@ -32,10 +32,8 @@ print("th,td{border:2px solid black;}")
 print("table{padding: 60px 50px;}")
 print("input:hover { background-color:green; /* Green */    color: white;border-radius: 50%;}")
 print("button:hover { background-color:green; /* Green */    color: white;border-radius: 50%;}")
-print("input,button{color: green; text-align: left; text-decoration: none; display: inline-block; font-size: 16px;bord
-er: 2px solid #4CAF50;border-radius: 50%;}")
-print("body {background:url('http://blog.hostbaby.com/wp-content/uploads/2014/03/PaintSquares_1400x900-1024x658.jpg');
-background-size:98% 100%;background-repeat:no-repeat; }")
+print("input,button{color: green; text-align: left; text-decoration: none; display: inline-block; font-size: 16px;border: 2px solid #4CAF50;border-radius: 50%;}")
+print("body {background:url('http://blog.hostbaby.com/wp-content/uploads/2014/03/PaintSquares_1400x900-1024x658.jpg');background-size:98% 100%;background-repeat:no-repeat; }")
 print("h1{text-shadow: 5px 5px 5px #95CACA;text-align:center;text-decoration:overline;letter-spacing:2px;")
 print("</style>")
 print("</head>")
