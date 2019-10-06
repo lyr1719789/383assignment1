@@ -5,6 +5,9 @@ import cgi
 import pymysql
 import csv
 
+print("Content-type: text/html\n")
+print("<title>Result</title>")
+print("<body><center>")
 
 def Student_list(file_name):
     with open(file_name, 'r') as csvFile:
@@ -67,9 +70,7 @@ def backup(app,students):
                 </form>
                 """)
 
-print("Content-type: text/html\n")
-print("<title>Result</title>")
-print("<body><center>")
+
 
 form = cgi.FieldStorage()
 app = form['app'].value if 'app' in form else ''
