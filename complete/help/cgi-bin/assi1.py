@@ -87,7 +87,7 @@ for i in list_of_students:
         sub=cursor5.fetchall()
         if len(sub)>=2:
                 print("<th>ok</th>")
-		 else:
+	else:
                 print("<th>no</th>")
         #6
         cursor6 = conn.cursor()
